@@ -83,6 +83,13 @@ gulp.task('js', function () {
  * Watch JavaScript files for changes.
  */
 
-gulp.task('watch-js', ['js'], function () {
-  gulp.watch('app/start.js', ['js']);
+gulp.task('watch-js', function () {
+  gulp.src('app/start.js')
+    .pipe(gwebpack({
+      __proto__: webpackOptions,
+      watch: true
+    }));
+  return gulp.src('bower_components/modernizr/modernizr.js', {
+    base: 'bower_components/modernizr'
+  }).pipe(gulp.dest('www/js'));
 });
