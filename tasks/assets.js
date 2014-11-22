@@ -14,7 +14,7 @@ var changed = require('gulp-changed');
 var es = require('event-stream');
 
 /**
- * Copy assets to public folder.
+ * Copy assets to www folder.
  */
 
 gulp.task('assets', function () {

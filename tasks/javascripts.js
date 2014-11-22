@@ -13,6 +13,7 @@ var gulp = require('gulp');
 
 // gulp modules
 
+var changed = require('gulp-changed');
 var gwebpack = require('gulp-webpack');
 
 /**
@@ -88,8 +89,12 @@ gulp.task('watch-js', function () {
     .pipe(gwebpack({
       __proto__: webpackOptions,
       watch: true
-    }));
-  return gulp.src('bower_components/modernizr/modernizr.js', {
-    base: 'bower_components/modernizr'
-  }).pipe(gulp.dest('www/js'));
+    }))
+    .pipe(gulp.dest('www/js'));
+  return gulp
+    .src('bower_components/modernizr/modernizr.js', {
+      base: 'bower_components/modernizr'
+    })
+    .pipe(changed('www/js'))
+    .pipe(gulp.dest('www/js'));
 });
