@@ -1,0 +1,30 @@
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../../bower_components/foundation/scss/foundation.scss";
+
+body {
+  /* prevent callout to copy image, etc when tap to hold */
+  -webkit-touch-callout: none;
+  /* prevent webkit from resizing text to fit */
+  -webkit-text-size-adjust: none;
+  /* prevent copy paste, to allow, change 'none' to 'text' */
+  -webkit-user-select: none;
+}
+
+#icon-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+@media not #{$large-up} {
+  #main {
+    padding-bottom: 2 * ($icon-bar-item-padding + $icon-bar-icon-size);
+  }
+}
+
+@media #{$large-up} {
+  #main {
+    padding-left: 2 * ($icon-bar-item-padding + $icon-bar-icon-size);
+  }
+}

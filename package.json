@@ -1,0 +1,42 @@
+{
+  "name": "cuddlebot",
+  "version": "0.0.1-dev",
+  "description": "UI for Cuddlebot",
+  "main": "",
+  "bin": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikepb/cuddlebot-ui.git"
+  },
+  "scripts": {
+    "test": "mocha --recursive --reporter spec"
+  },
+  "author": "Michael Phan-Ba <michael@mikepb.com>",
+  "dependencies": {
+    "exoskeleton": "^0.7.0",
+    "fastclick": "^1.0.3",
+    "font-awesome": "^4.2.0",
+    "jquery": "^2.1.1",
+    "lodash": "^2.4.1",
+    "page": "^1.3.7",
+    "pubsub-js": "^1.5.0",
+    "react": "^0.12.1",
+    "react-async": "^2.0.1",
+    "store": "^1.3.16"
+  },
+  "devDependencies": {
+    "duplexer": "*",
+    "event-stream": "*",
+    "gulp": "*",
+    "gulp-changed": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-webpack": "*",
+    "json-loader": "*",
+    "jsx-loader": "*",
+    "mocha": "*",
+    "webpack": "*"
+  },
+  "license": "GPLv3",
+  "private": true
+}
