@@ -5,7 +5,6 @@
  */
 
 var gulp = require('gulp');
-var path = require('path');
 
 /**
  * Environment config.
@@ -20,9 +19,9 @@ if (!process.env.NODE_ENV) {
  */
 
 require('./tasks/assets');
+require('./tasks/dependencies');
 require('./tasks/javascripts');
 require('./tasks/stylesheets');
-// require('./tasks/react');
 
 /**
  * Define build task.
