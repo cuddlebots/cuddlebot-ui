@@ -1,10 +1,21 @@
 'use strict';
 
 /**
- * Module dependencies
+ * Module dependencies.
  */
 
 var page = require('page');
+
+// React components.
+
+var Main = require('./components/main.jsx');
+
+/**
+ * Initialize routes.
+ */
+
+page('/', show(Main));
+page();
 
 /**
  * Initialize jQuery plugins
@@ -12,27 +23,23 @@ var page = require('page');
 
 require('../bower_components/jquery.cookie/jquery.cookie.js');
 require('../bower_components/jquery-placeholder/jquery.placeholder.js');
-
-/**
- * Initialize Foundation
- */
-
 require('../bower_components/foundation/js/foundation.js');
 
 /**
- * React components
+ * Initialize foundation.
  */
 
-var Main = require('./components/main.jsx');
+$(document).foundation();
 
 /**
- * Routes
+ * Show a top-level component.
+ *
+ * The currently active component is unmounted before the new component is
+ * rendered in its place.
+ *
+ * @param component The React component to render
+ * @api private
  */
-
-// page('/', show(Main));
-// page();
-
-show(Main)();
 
 function show (component) {
   var instance = React.createElement(component);
@@ -42,5 +49,3 @@ function show (component) {
     React.render(instance, contentContainer);
   };
 }
-
-$(document).foundation();
