@@ -21,11 +21,12 @@ module.exports = function(config) {
 
     reporters: ['progress'],
 
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome', 'Safari'],
 
     plugins: [
+      require("karma-chrome-launcher"),
       require("karma-mocha"),
-      require("karma-phantomjs-launcher"),
+      require("karma-safari-launcher"),
       require("karma-webpack")
     ]
 
