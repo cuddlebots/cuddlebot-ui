@@ -4,7 +4,7 @@
  * Module dependencies
  */
 
-var IconBar = require('./icon-bar.jsx');
+var ActionBar = require('./action-bar.jsx');
 var ControlPanel = require('./control-panel.jsx');
 
 /**
@@ -20,8 +20,8 @@ module.exports = React.createClass({
   render: function () {
     return (
       <div id="main">
-        <IconBar/>
-        <ControlPanel/>
+        <ActionBar />
+        <ControlPanel />
       </div>
     );
   }

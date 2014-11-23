@@ -31,8 +31,6 @@ var webpackPlugins = [
     $: 'jquery',
     jQuery: 'jquery',
     'window.jQuery': 'jquery',
-    FastClick: 'fastclick',
-    'window.FastClick': 'fastclick',
     React: 'react'
   })
 ];
@@ -71,12 +69,8 @@ var webpackOptions = {
  */
 
 gulp.task('js', function () {
-  var app = gulp.src('app/start.js')
-    .pipe(gwebpack(webpackOptions));
-  var modernizr = gulp.src('bower_components/modernizr/modernizr.js', {
-    base: 'bower_components/modernizr'
-  });
-  return es.concat(app, modernizr)
+  return gulp.src('app/start.js')
+    .pipe(gwebpack(webpackOptions))
     .pipe(gulp.dest('www/js'));
 });
 
@@ -90,11 +84,5 @@ gulp.task('watch-js', function () {
       __proto__: webpackOptions,
       watch: true
     }))
-    .pipe(gulp.dest('www/js'));
-  return gulp
-    .src('bower_components/modernizr/modernizr.js', {
-      base: 'bower_components/modernizr'
-    })
-    .pipe(changed('www/js'))
     .pipe(gulp.dest('www/js'));
 });

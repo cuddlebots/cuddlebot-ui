@@ -4,32 +4,40 @@
  * Module dependencies.
  */
 
+var FastClick = require('fastclick');
 var page = require('page');
 
 // React components.
 
-var Main = require('./components/main.jsx');
+var ActionBar = require('./components/action-bar.jsx');
+var ControlPanel = require('./components/control-panel.jsx');
 
 /**
  * Initialize routes.
  */
 
-page('/', show(Main));
+page('/', show(ControlPanel));
 page();
 
 /**
- * Initialize jQuery plugins
+ * Initialize vendor scripts.
  */
 
-require('../bower_components/jquery.cookie/jquery.cookie.js');
-require('../bower_components/jquery-placeholder/jquery.placeholder.js');
-require('../bower_components/foundation/js/foundation.js');
+if ('addEventListener' in document) {
+  document.addEventListener('DOMContentLoaded', function() {
+    FastClick.attach(document.body);
+  }, false);
+}
+
+require('ratchet/js/toggles');
+require('bootstrap/js/tooltip');
 
 /**
- * Initialize foundation.
+ * Render action bar.
  */
 
-$(document).foundation();
+var actionBarInstance = React.createElement(ActionBar);
+React.render(actionBarInstance, document.getElementById('action-bar'));
 
 /**
  * Show a top-level component.
@@ -44,7 +52,7 @@ $(document).foundation();
 function show (component) {
   var instance = React.createElement(component);
   return function () {
-    var contentContainer = document.body;
+    var contentContainer = document.getElementById('main');
     React.unmountComponentAtNode(contentContainer);
     React.render(instance, contentContainer);
   };

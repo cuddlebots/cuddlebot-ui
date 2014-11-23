@@ -10,7 +10,7 @@ var gulp = require('gulp');
 
 // gulp modules
 
-var sass = require('gulp-sass');
+var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
 
 /**
@@ -24,12 +24,12 @@ var production = process.env.NODE_ENV == 'production';
  */
 
 gulp.task('css', function () {
-  return gulp.src('app/styles/*.scss', {
+  return gulp.src('app/styles/*.less', {
       base: 'app/styles'
     })
     .pipe(sourcemaps.init())
-    .pipe(sass({
-      outputStyle: production ? 'nested' : 'compressed'
+    .pipe(less({
+      compress: production
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('www/css'));
@@ -40,5 +40,5 @@ gulp.task('css', function () {
  */
 
 gulp.task('watch-css', ['css'], function () {
-  gulp.watch('app/styles/**/*.scss', ['css']);
+  gulp.watch('app/styles/**/*.less', ['css']);
 });

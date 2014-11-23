@@ -1,6 +1,12 @@
 /** @jsx React.DOM */
 
 /**
+ * Module dependencies.
+ */
+
+var Slider = require('./ui/slider.jsx');
+
+/**
  * Control view.
  */
 
@@ -12,99 +18,109 @@ module.exports = React.createClass({
 
   render: function () {
     return (
-      <div className="rows">
-        <div className="columns large-6">
-          <fieldset>
-            <legend>
-              <div className="switch round tiny pull-left">
-                <input id="head-enabled" type="checkbox"/>
-                <label htmlFor="head-enabled">Enabled</label>
+      <div className="container-fluid">
+        <div className="rows">
+          <div className="col-lg-6">
+            <div className="well">
+              <div className="control-header">
+                <div className="toggle pull-right">
+                  <div className="toggle-handle"></div>
+                </div>
+                <h2>Head Control</h2>
               </div>
-              &nbsp;
-              Head Control
-            </legend>
-          </fieldset>
-          <fieldset>
-            <legend>
-              <div className="switch round tiny pull-left">
-                <input id="purr-enabled" type="checkbox"/>
-                <label htmlFor="purr-enabled">Enabled</label>
+            </div>
+            <div className="well">
+              <div className="control-header">
+                <div className="toggle pull-right">
+                  <div className="toggle-handle"></div>
+                </div>
+                <h2>Purr Control</h2>
               </div>
-              &nbsp;
-              Purr Control
-            </legend>
-            <h3>Presets</h3>
-            <ul className="button-group">
-              <li><a href="javascript:void 0" className="button secondary small">Lowest</a></li>
-              <li><a href="javascript:void 0" className="button small">Lower</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Moderate</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Higher</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Highest</a></li>
-            </ul>
-            <h3>Intensity</h3>
-            <div className="range-slider round" data-slider>
-              <span className="range-slider-handle" role="slider"></span>
-              <span className="range-slider-active-segment"></span>
-            </div>
-          </fieldset>
-        </div>
-        <div className="columns large-6">
-          <fieldset>
-            <legend>
-              <div className="switch round tiny pull-left">
-                <input id="ribs-enabled" type="checkbox"/>
-                <label htmlFor="ribs-enabled">Enabled</label>
+              <div className="form-group clearfix">
+                <label>Presets</label>
+                <div className="clearfix">
+                  <div className="btn-group pull-left">
+                    <a href="javascript:void 0" className="btn btn-default">Lowest</a>
+                    <a href="javascript:void 0" className="btn btn-primary">Lower</a>
+                    <a href="javascript:void 0" className="btn btn-default">Moderate</a>
+                    <a href="javascript:void 0" className="btn btn-default">Higher</a>
+                    <a href="javascript:void 0" className="btn btn-default">Highest</a>
+                  </div>
+                  <div className="btn-group pull-right">
+                    <a href="javascript:void 0" className="btn btn-warning">Custom</a>
+                  </div>
+                </div>
               </div>
-              &nbsp;
-              Ribs Control
-            </legend>
-            <h3>Presets</h3>
-            <ul className="button-group">
-              <li><a href="javascript:void 0" className="button secondary small">Lowest</a></li>
-              <li><a href="javascript:void 0" className="button small">Lower</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Moderate</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Higher</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Highest</a></li>
-            </ul>
-            <h3>Symmetry</h3>
-            <div className="range-slider round" data-slider>
-              <span className="range-slider-handle" role="slider"></span>
-              <span className="range-slider-active-segment"></span>
-            </div>
-            <h3>Rate</h3>
-            <div className="range-slider round" data-slider>
-              <span className="range-slider-handle" role="slider"></span>
-              <span className="range-slider-active-segment"></span>
-            </div>
-            <h3>Depth</h3>
-            <div className="range-slider round" data-slider>
-              <span className="range-slider-handle" role="slider"></span>
-              <span className="range-slider-active-segment"></span>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>
-              <div className="switch round tiny pull-left">
-                <input id="spine-enabled" type="checkbox"/>
-                <label htmlFor="spine-enabled">Enabled</label>
+              <div className="form-group clearfix">
+                <label>Intensity</label>
+                <Slider/>
               </div>
-              &nbsp;
-              Spine Control
-            </legend>
-            <h3>Presets</h3>
-            <ul className="button-group">
-              <li><a href="javascript:void 0" className="button secondary small">Lowest</a></li>
-              <li><a href="javascript:void 0" className="button small">Lower</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Moderate</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Higher</a></li>
-              <li><a href="javascript:void 0" className="button secondary small">Highest</a></li>
-            </ul>
-            <h3>Arch</h3>
-            <div className="range-slider round" data-slider>
-              <span className="range-slider-handle" role="slider"></span>
-              <span className="range-slider-active-segment"></span>
             </div>
-          </fieldset>
+          </div>
+          <div className="col-lg-6">
+            <div className="well">
+              <div className="control-header">
+                <div className="toggle pull-right">
+                  <div className="toggle-handle"></div>
+                </div>
+                <h2>Ribs Control</h2>
+              </div>
+              <div className="form-group clearfix">
+                <label>Presets</label>
+                <div className="clearfix">
+                  <div className="btn-group pull-left">
+                    <a href="javascript:void 0" className="btn btn-default">Lowest</a>
+                    <a href="javascript:void 0" className="btn btn-primary">Lower</a>
+                    <a href="javascript:void 0" className="btn btn-default">Moderate</a>
+                    <a href="javascript:void 0" className="btn btn-default">Higher</a>
+                    <a href="javascript:void 0" className="btn btn-default">Highest</a>
+                  </div>
+                  <div className="btn-group pull-right">
+                    <a href="javascript:void 0" className="btn btn-warning">Custom</a>
+                  </div>
+                </div>
+              </div>
+              <div className="form-group clearfix">
+                <label>Symmetry</label>
+                <Slider/>
+              </div>
+              <div className="form-group clearfix">
+                <label>Rate</label>
+                <Slider/>
+              </div>
+              <div className="form-group clearfix">
+                <label>Depth</label>
+                <Slider/>
+              </div>
+            </div>
+            <div className="well">
+              <div className="control-header">
+                <div className="toggle pull-right">
+                  <div className="toggle-handle"></div>
+                </div>
+                <h2>Spine Control</h2>
+              </div>
+              <div className="form-group clearfix">
+                <label>Presets</label>
+                <div className="clearfix">
+                  <div className="btn-group pull-left">
+                    <a href="javascript:void 0" className="btn btn-default">Lowest</a>
+                    <a href="javascript:void 0" className="btn btn-primary">Lower</a>
+                    <a href="javascript:void 0" className="btn btn-default">Moderate</a>
+                    <a href="javascript:void 0" className="btn btn-default">Higher</a>
+                    <a href="javascript:void 0" className="btn btn-default">Highest</a>
+                  </div>
+                  <div className="btn-group pull-right">
+                    <a href="javascript:void 0" className="btn btn-warning">Custom</a>
+                  </div>
+                </div>
+              </div>
+              <div className="form-group clearfix">
+                <label>Arch</label>
+                <Slider/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

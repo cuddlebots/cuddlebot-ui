@@ -1,0 +1,24 @@
+
+@import "./vendor/bootstrap.less";
+@import "./vendor/bootstrap-slider.less";
+@import "./vendor/ratchet.less";
+@import "./vendor/font-awesome.less";
+
+body {
+  /* prevent callout to copy image, etc when tap to hold */
+  -webkit-touch-callout: none;
+  /* prevent webkit from resizing text to fit */
+  -webkit-text-size-adjust: none;
+  /* prevent copy paste, to allow, change 'none' to 'text' */
+  -webkit-user-select: none;
+}
+
+#main {
+  margin: @grid-gutter-width 0;
+}
+
+.control-header {
+  h2 {
+    margin-top: 0;
+  }
+}
