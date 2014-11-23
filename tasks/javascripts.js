@@ -6,6 +6,7 @@
 
 var es = require('event-stream');
 var webpack = require('webpack');
+var webpackOptions = require('../webpack.conf.js');
 
 // gulp
 
@@ -23,45 +24,11 @@ var gwebpack = require('gulp-webpack');
 var production = process.env.NODE_ENV == 'production';
 
 /**
- * WebPack options.
+ * Set output filename.
  */
 
-var webpackPlugins = [
-  new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    'window.jQuery': 'jquery',
-    React: 'react'
-  })
-];
-
-if (production) {
-  webpackPlugins.push(
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
-      }
-    })
-  );
-}
-
-var webpackOptions = {
-  devtool: 'source-map',
-  module: {
-    loaders: [{
-      test: /\.json$/,
-      loader: 'json'
-    }, {
-      test: /\.jsx$/,
-      loader: 'jsx'
-    }]
-  },
-  plugins: webpackPlugins,
-  output: {
-    filename: 'app.js'
-  }
+webpackOptions.output = {
+  filename: 'app.js'
 };
 
 /**

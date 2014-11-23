@@ -17,6 +17,8 @@ var Slider = require('bootstrap-slider');
 
 module.exports = React.createClass({
 
+  mixins: [React.addons.LinkedStateMixin],
+
   getInitialState: function () {
     return {};
   },
@@ -30,6 +32,10 @@ module.exports = React.createClass({
         result[key] = value;
       }).value();
 
+    if (options.value == null) {
+      options.value = this.state.value;
+    }
+
     this.slider = new Slider(this.getDOMNode(), options);
   },
 
@@ -42,7 +48,7 @@ module.exports = React.createClass({
 
   render: function () {
     return (
-      <input type="text"/>
+      <input type="text" valueLink={this.linkState('value')} />
     );
   }
 

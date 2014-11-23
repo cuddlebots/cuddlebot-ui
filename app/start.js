@@ -4,56 +4,27 @@
  * Module dependencies.
  */
 
-var FastClick = require('fastclick');
-var page = require('page');
-
-// React components.
-
-var ActionBar = require('./components/action-bar.jsx');
-var ControlPanel = require('./components/control-panel.jsx');
+var Router = require('react-router');
+var routes = require('./routes.jsx');
 
 /**
- * Initialize routes.
+ * Install jQuery plugins.
  */
 
-page('/', show(ControlPanel));
-page();
-
-/**
- * Initialize vendor scripts.
- */
-
-if ('addEventListener' in document) {
-  document.addEventListener('DOMContentLoaded', function() {
-    FastClick.attach(document.body);
-  }, false);
-}
-
-require('ratchet/js/toggles');
 require('bootstrap/js/tooltip');
 
 /**
- * Render action bar.
+ * Install tap event plugin.
+ *
+ * @see https://github.com/zilverline/react-tap-event-plugin
  */
 
-var actionBarInstance = React.createElement(ActionBar);
-React.render(actionBarInstance, document.getElementById('action-bar'));
+require("react-tap-event-plugin")();
 
 /**
- * Show a top-level component.
- *
- * The currently active component is unmounted before the new component is
- * rendered in its place.
- *
- * @param component The React component to render
- * @api private
+ * Render app.
  */
 
-function show (component) {
-  var instance = React.createElement(component);
-  return function () {
-    var contentContainer = document.getElementById('main');
-    React.unmountComponentAtNode(contentContainer);
-    React.render(instance, contentContainer);
-  };
-}
+Router.run(routes, function (Handler) {
+  React.render(React.createElement(Handler), document.body);
+});
