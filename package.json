@@ -10,7 +10,7 @@
   },
   "scripts": {
     "prepublish": "gulp deps build",
-    "test": "karma start",
+    "test": "karma start --single-run",
     "start": "ripple emulate --path .",
     "emulate": "cordova emulate android",
     "watch": "gulp watch"
@@ -18,12 +18,11 @@
   "author": "Michael Phan-Ba <michael@mikepb.com>",
   "dependencies": {
     "bootstrap": "^3.3.1",
-    "bootstrap-slider": "^4.2.0",
     "exoskeleton": "^0.7.0",
     "font-awesome": "^4.2.0",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",
-    "material-ui": "^0.3.0",
+    "material-ui": "mikepb/material-ui",
     "pubsub-js": "^1.5.0",
     "react": "^0.12.1",
     "react-async": "^2.0.1",

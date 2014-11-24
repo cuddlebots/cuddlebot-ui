@@ -16,7 +16,10 @@ module.exports = React.createClass({
   render: function() {
     return (
       <mui.AppCanvas predefinedLayout={1}>
-        <mui.AppBar onMenuIconClick={this._onMenuIconClick} title="{TODO: find title}" zDepth={0}>
+        <mui.AppBar
+          onMenuIconButtonTouchTap={this._onMenuIconButtonTouchTap}
+          title="Cuddlebot"
+          zDepth={0}>
         </mui.AppBar>
         <AppLeftNav ref="leftNav" />
         <RouteHandler />
@@ -24,7 +27,7 @@ module.exports = React.createClass({
     );
   },
 
-  _onMenuIconClick: function() {
+  _onMenuIconButtonTouchTap: function() {
     this.refs.leftNav.toggle();
   }
 

@@ -18,8 +18,7 @@ var Row = reactb.Row;
 var PaperButton = mui.PaperButton;
 var RadioButton = mui.RadioButton;
 var Toggle = mui.Toggle;
-
-var Slider = require('./ui/slider.jsx');
+var Slider = mui.Slider;
 
 /**
  * Control view.
@@ -51,7 +50,7 @@ module.exports = React.createClass({
             <PaperButton type="FLAT" label="Highest" />
 
             <h3>Intensity</h3>
-            <Slider />
+            <Slider name="intensity" />
 
           </Col>
           <Col lg={6}>
@@ -67,13 +66,13 @@ module.exports = React.createClass({
             <PaperButton type="FLAT" label="Highest" />
 
             <h3>Symmetry</h3>
-            <Slider />
+            <Slider name="symmetry" disabled={true} value={.5} />
 
             <h3>Rate</h3>
-            <Slider />
+            <Slider name="rate" />
 
             <h3>Depth</h3>
-            <Slider />
+            <Slider name="depth" value={.5} />
 
             <h1>Spine Control</h1>
             <Toggle />
@@ -86,7 +85,7 @@ module.exports = React.createClass({
             <PaperButton type="FLAT" label="Highest" />
 
             <h3>Arch</h3>
-            <Slider />
+            <Slider name="arch" />
 
           </Col>
         </Row>
