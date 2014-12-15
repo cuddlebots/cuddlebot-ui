@@ -11,6 +11,7 @@ var gulp = require('gulp');
 // gulp modules
 
 var less = require('gulp-less');
+var notify = require("gulp-notify");
 var sourcemaps = require('gulp-sourcemaps');
 
 /**
@@ -32,7 +33,13 @@ gulp.task('css', function () {
       compress: production
     }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('www/css'));
+    .pipe(gulp.dest('www/css'))
+    .pipe(notify({
+      title: "LessCSS",
+      message: "Finished compiling CSS files.",
+      onLast: true
+    }))
+    .on('error', notify.onError("LessCSS: <%= error.message %>"));
 });
 
 /**
