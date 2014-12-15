@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+'use strict';
 
 /**
  * Module dependencies.
@@ -9,13 +9,10 @@ var mui = require('material-ui');
 
 // React components.
 
-var Button = reactb.Button;
-var ButtonGroup = reactb.ButtonGroup;
-var PageHeader = reactb.PageHeader;
 var Col = reactb.Col;
 var Row = reactb.Row;
 
-var PaperButton = mui.PaperButton;
+var FlatButton = mui.FlatButton;
 var RadioButton = mui.RadioButton;
 var Toggle = mui.Toggle;
 var Slider = mui.Slider;
@@ -43,11 +40,11 @@ module.exports = React.createClass({
             <Toggle />
 
             <h3>Presets</h3>
-            <PaperButton type="FLAT" label="Lowest" />
-            <PaperButton type="FLAT" label="Lower" primary={true} />
-            <PaperButton type="FLAT" label="Moderate" />
-            <PaperButton type="FLAT" label="Higher" />
-            <PaperButton type="FLAT" label="Highest" />
+            <FlatButton label="Lowest" />
+            <FlatButton label="Lower" primary={true} />
+            <FlatButton label="Moderate" />
+            <FlatButton label="Higher" />
+            <FlatButton label="Highest" />
 
             <h3>Intensity</h3>
             <Slider name="intensity" />
@@ -59,11 +56,11 @@ module.exports = React.createClass({
             <Toggle />
 
             <h3>Presets</h3>
-            <PaperButton type="FLAT" label="Lowest" />
-            <PaperButton type="FLAT" label="Lower" primary={true} />
-            <PaperButton type="FLAT" label="Moderate" />
-            <PaperButton type="FLAT" label="Higher" />
-            <PaperButton type="FLAT" label="Highest" />
+            <FlatButton label="Lowest" />
+            <FlatButton label="Lower" primary={true} />
+            <FlatButton label="Moderate" />
+            <FlatButton label="Higher" />
+            <FlatButton label="Highest" />
 
             <h3>Symmetry</h3>
             <Slider name="symmetry" disabled={true} value={.5} />
@@ -78,11 +75,11 @@ module.exports = React.createClass({
             <Toggle />
 
             <h3>Presets</h3>
-            <PaperButton type="FLAT" label="Lowest" />
-            <PaperButton type="FLAT" label="Lower" primary={true} />
-            <PaperButton type="FLAT" label="Moderate" />
-            <PaperButton type="FLAT" label="Higher" />
-            <PaperButton type="FLAT" label="Highest" />
+            <FlatButton label="Lowest" />
+            <FlatButton label="Lower" primary={true} />
+            <FlatButton label="Moderate" />
+            <FlatButton label="Higher" />
+            <FlatButton label="Highest" />
 
             <h3>Arch</h3>
             <Slider name="arch" />
