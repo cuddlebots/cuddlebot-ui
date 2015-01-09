@@ -33,12 +33,34 @@ convenience:
 npm test
 # Start the application in a browser using the Ripple emulator
 npm start
+# Build the application and save the results to the www directory
+npm run build
+# Continually watch for changed files and rebuild the application
+npm run watch
 # Start the application on an Android emulator
 npm run emulate
 ```
 
+You must run either `npm run build` or `npm run watch` before starting the
+emulator or developing using a web browser.
+
 Please see the [Android Getting Started Guide][android_guide] for
 instructions on how to get started with Cordova on Android.
+
+
+### Developing using a web browser
+
+Certain web browsers, including Google Chrome at the time of writing, allow
+`file://` applications to send Ajax requests to remote servers. We may
+exploit this feature by directly opening `www/index.html` in a local web
+browser to more quickly develop the application. Simply refresh the page
+after editing source files and allowing enough time for the build system to
+update the compiled application files.
+
+The application currently does not use any Android or Cordova-specific
+features. Should this change in the future, developing using the application
+using a web browser would no longer be possible. However, you may be able
+to use the [Ripple][ripple] emulator to speed up development.
 
 
 ## Project File Organization
@@ -83,12 +105,13 @@ instructions on how to get started with Cordova on Android.
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+[android_guide]: docs/android.md
 [cordova]: http://cordova.apache.org
-[react]: http://facebook.github.io/react/
 [gulp]: http://gulpjs.com
-[lesscss]: http://lesscss.org
 [karma]: http://karma-runner.github.io/0.12/index.html
+[lesscss]: http://lesscss.org
 [nodejs]: http://nodejs.org
 [npmjs]: https://www.npmjs.org
-[android_guide]: docs/android.md
+[react]: http://facebook.github.io/react/
+[ripple]: http://ripple.incubator.apache.org
 [webpack]: http://webpack.github.io
