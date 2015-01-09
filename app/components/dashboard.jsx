@@ -45,31 +45,20 @@ module.exports = React.createClass({
   render: function () {
     return (
       <div className="container container-fluid">
-
-        <h3>Head Horizontal Control</h3>
-        {this._renderControl('headx')}
-
-        <h3>Head Vertical Control</h3>
-        {this._renderControl('heady')}
-
-        <h3>Ribs Control</h3>
-        {this._renderControl('ribs')}
-
-        <h3>Spine Control</h3>
-        {this._renderControl('spine')}
-
-        <h3>Purr Control</h3>
-        {this._renderControl('purr')}
-
+        {this._renderControl('headx', 'Head Horizontal Control')}
+        {this._renderControl('heady', 'Head Vertical Control')}
+        {this._renderControl('ribs', 'Ribs Control')}
+        {this._renderControl('spine', 'Spine Control')}
+        {this._renderControl('purr', 'Purr Control')}
       </div>
     );
   },
 
-  _renderControl: function (name) {
+  _renderControl: function (name, title) {
     return (
       <div>
-        <Toggle onToggle={this._toggle(name)} />
-        <Slider name={name} min={0} max={65535}
+        <h3><Toggle className="pull-right" onToggle={this._toggle(name)} />{title}</h3>
+        <Slider ref={name + 'Slider'} name={name} min={0} max={65535}
           disabled={this._isDisabled(name)}
           onChange={this._onUpdate(name)} />
       </div>
@@ -83,9 +72,17 @@ module.exports = React.createClass({
   _toggle: function (name) {
     var self = this;
     return function () {
+      var key = name + 'Disabled';
       var state = {};
-      state[name + 'Disabled'] = !self.state[name + 'Disabled'];
+      var disabled = state[key] = !self.state[key];
+
       self.setState(state);
+
+      if (disabled) {
+        self._sleep(name);
+      } else {
+        self._setpoint(name, self.refs[name + 'Slider'].getValue());
+      }
     };
   },
 
@@ -93,23 +90,40 @@ module.exports = React.createClass({
     var self = this;
     return function (e, value) {
       if (self.state[name + 'Disabled']) return;
-
-      var update = {
-        addr: name,
-        delay: 0,
-        loop: 'forever',
-        setpoints: [1000, parseInt(value, 10)]
-      };
-
-      if (self._req) self._req.abort();
-
-      self._req = request
-        .put('http://cuddlebot/1/setpoint.json')
-        .send(update)
-        .end(function () {
-          self._req = null;
-        });
+      self._setpoint(name, value);
     };
+  },
+
+  _setpoint: function (name, value) {
+    var value = parseInt(value, 10);
+
+    if (name == 'purr') {
+      value = parseInt(value / 512, 10) << 8;
+    }
+
+    var data = {
+      addr: name,
+      delay: 0,
+      loop: 65535, // forever
+      setpoints: [1000, value]
+    };
+    this._request('http://cuddlebot/1/setpoint.json', data);
+  },
+
+  _sleep: function (name) {
+    var data = { addr: [name] };
+    this._request('http://cuddlebot/1/sleep.json', data);
+  },
+
+  _request: function (url, data) {
+    var key = '_req_' + name;
+    if (this[key]) this[key].abort();
+    self[key] = request
+      .put(url)
+      .send(data)
+      .end(function () {
+        self[key] = null;
+      });
   }
 
 });

@@ -10,5 +10,5 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="Fullscreen" value="true" />
-	<preference name="Orientation" value="landscape" />
+	<preference name="Orientation" value="default" />
 </widget>
