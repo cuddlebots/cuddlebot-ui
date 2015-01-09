@@ -44,21 +44,28 @@ instructions on how to get started with Cordova on Android.
 ## Project File Organization
 
 - `app/` source files for the web application
+- `app/assets/` these files are copied directly to `www/`
+- `app/components/` [ReactJS][react] components
+- `app/lib/` JavaScript library files
+- `app/styles/` [LessCSS][lesscss] stylesheets
+- `app/styles/routes.jsx` application route definitions
+- `app/styles/start.jsx` application entry point
 - `docs/` documentation
-- `hooks/` Apache Cordova hooks directory
-- `node_modules` Node.js modules directory
-- `platforms/` Apache Cordova platforms directory
-- `plugins/` Apache Cordova plugins directory
-- `tasks/` Gulp task scripts
-- `test/` Karma test files
-- `www/` Compiled application files, used by Cordova to package the
+- `hooks/` [Apache Cordova][cordova] hooks directory
+- `node_modules` [Node.js][nodejs] modules directory
+- `platforms/` [Apache Cordova][cordova] platforms directory
+- `plugins/` [Apache Cordova][cordova] plugins directory
+- `tasks/` [Gulp][gulp] task scripts
+- `test/` [Karma][karma] test files
+- `www/` compiled application files, used by Cordova to package the
   application
-- `config.xml` Apache Cordova configuration file
-- `gulpfile.js` Gulp configuration script
-- `karma.conf.js` Karma configuration script
-- `LICENSE.txt` Project licence
-- `README.md` A getting started guide
-- `webpack.conf.js` WebPack configuration script, part of the build system
+- `config.xml` [Apache Cordova][cordova] configuration file
+- `gulpfile.js` [Gulp][gulp] configuration script
+- `karma.conf.js` [Karma][karma] configuration script
+- `LICENSE.txt` project licence
+- `README.md` a getting started guide
+- `webpack.conf.js` [WebPack][webpack] configuration script, part of the
+  build system
 
 ## License
 
@@ -79,6 +86,9 @@ instructions on how to get started with Cordova on Android.
 [cordova]: http://cordova.apache.org
 [react]: http://facebook.github.io/react/
 [gulp]: http://gulpjs.com
+[lesscss]: http://lesscss.org
+[karma]: http://karma-runner.github.io/0.12/index.html
 [nodejs]: http://nodejs.org
 [npmjs]: https://www.npmjs.org
 [android_guide]: docs/android.md
+[webpack]: http://webpack.github.io
