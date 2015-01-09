@@ -55,6 +55,6 @@
     "webpack": "*",
     "webpack-dev-server": "*"
   },
-  "license": "MIT",
+  "license": "GPLv3",
   "private": true
 }
